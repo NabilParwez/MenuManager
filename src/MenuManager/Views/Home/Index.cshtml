@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MenuManager">
+<head>
+    <title>MenuManager</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body ng-controller="AccountController as account">
+    <style>
+        a {
+            text-decoration: none;
+            float: none;
+            height: 50px;
+            line-height: 50px;
+            padding: 10px;
+            margin: 2px;
+            border-top-right-radius: 8px;
+            font-size: 15px;
+            color: #0094ff;
+            table-layout: fixed;
+        }
+    </style>
+    <div class="container text-center">
+        <h1>GM Family Kitchen</h1>
+        <div class='section section--denim'>
+
+            <ul class="nav nav-pills nav-justified text-center">
+                <li> <a ui-sref="home">Home</a>  </li>
+                <li><a ui-sref="menu">Menu</a></li>
+                <li><a ui-sref="about">About</a></li>
+                <li><a ui-sref="location">Location</a></li>
+                <li><a ui-sref="menuedit" ng-if="account.getclaim('isadmin')">edit menu</a></li>
+                <li><a href="/login" ng-show="!account.isloggedin()">login</a></li>
+                <li><a href="#" ng-click="account.logout()" ng-show="account.isloggedin()">logout</a></li>
+            </ul>
+
+
+        </div>
+
+        <div ng-show="account.isLoggedIn()">
+            [{{account.getUserName()}}]
+        </div>
+
+        <hr />
+
+        <ui-view></ui-view>
+    </div>
+
+    <!-- Library Files -->
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-resource/angular-resource.js"></script>
+    <script src="~/lib/angular-animate/angular-animate.js"></script>
+    <script src="~/lib/angular-touch/angular-touch.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- App Files-->
+    <script src="~/ngapp/app.js"></script>
+    <script src="~/ngapp/controllers/controllers.js"></script>
+    <script src="~/ngapp/services/services.js"></script>
+
+
+    <!-- Security -->
+    <script src="~/ngapp/controllers/accountcontroller.js"></script>
+    <script src="~/ngapp/services/accountservice.js"></script>
+
+</body>
+</html>

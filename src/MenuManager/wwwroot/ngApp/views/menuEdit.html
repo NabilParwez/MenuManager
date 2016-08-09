@@ -1,0 +1,26 @@
+﻿<div class="row">
+    <ng-include src="'/ngApp/views/_menuItem.html'"></ng-include>
+
+    <form ng-submit="controller.submit(menuItem)" class="col-md-6">
+        <label> Name </label>
+        <input ng-model="menuItem.name" />
+        <br />
+        <label>ImageUrl</label>
+        <input ng-model="menuItem.imageUrl" />
+        <br />
+        <label>Price</label>
+        <input ng-model="menuItem.price" />
+        <br />
+        <label>Category</label>
+        <select ng-options="cat.name as cat.name for cat in controller.categories" ng-model="menuItem.categoryName"></select>
+        <br />
+        <label>Description</label>
+        <textarea ng-model="menuItem.description"></textarea>
+        <br />
+        <label>Calories</label>
+        <input ng-model="menuItem.calories" />
+
+        <button type="submit">Submit</button>
+
+    </form>
+</div>

@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <div class="col-md-12" ng-repeat="(cat, menuItems) in controller.menuItems">
+        <div class="row">
+            <h2 class="col-md-12">{{cat}}</h2>
+            <div class="col-md-12">
+                <div class="row">
+                    <ng-include src="'/ngApp/views/_menuItem.html'" ng-repeat="menuItem in menuItems"></ng-include>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
